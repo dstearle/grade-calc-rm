@@ -4,6 +4,7 @@
 
         <h4 class="pt-5 pb-2">Student Grades</h4>
 
+        <!-- Table -->
         <table class="table table-bordered">
 
             <!-- Table Headers -->
@@ -16,14 +17,9 @@
                 <th>GPA</th>
             </tr>
 
-            <!-- Table Rows -->
-            <tr v-for="student of studentList" v-bind:key="student.id">
+            <!-- List Of Students -->
+            <tr v-for="student of studentList.data" v-bind:key="student._id">
                 <td>{{ student.name }}</td>
-                <td>{{ student.math }}</td>
-                <td>{{ student.history }}</td>
-                <td>{{ student.science }}</td>
-                <td>{{ student.english }}</td>
-                <td>{{ student.gpa }}</td>
             </tr>
 
         </table>
@@ -36,13 +32,23 @@
 
     export default {
 
+        data() {
+            
+            return {
+                
+                name: '',
+                
+            }
+            
+        },
+
         computed: {
             
             studentList() {
                 
                 return this.$store.getters.studentDataGet;
                 
-            }
+            },
             
         }
 
