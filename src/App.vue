@@ -31,7 +31,14 @@
 
       StudentList,
 
-    }
+    },
+
+    created() {
+        
+      // Initializes data stored in the json file
+      this.$store.dispatch('initStudents')
+        
+    },
 
   }
 

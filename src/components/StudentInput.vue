@@ -98,8 +98,6 @@
             <button 
                 type="submit" 
                 class="btn btn-primary btn-block"
-                :disabled="submitStatus"
-                @click="submitMessage"
             >
 
                 Add Student
