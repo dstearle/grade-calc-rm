@@ -20,6 +20,11 @@
             <!-- List Of Students -->
             <tr v-for="student of studentList.data" v-bind:key="student._id">
                 <td>{{ student.name }}</td>
+                <td>{{ student.grades[0].split(" ")[2] }}</td>
+                <td>{{ student.grades[1].split(" ")[2] }}</td>
+                <td>{{ student.grades[2].split(" ")[2] }}</td>
+                <td>{{ student.grades[3].split(" ")[2] }}</td>
+                <td>{{ student.gpa }}</td>
             </tr>
 
         </table>
@@ -32,18 +37,9 @@
 
     export default {
 
-        data() {
-            
-            return {
-                
-                name: '',
-                
-            }
-            
-        },
-
         computed: {
             
+            // Retrieves the stored data from the store 
             studentList() {
                 
                 return this.$store.getters.studentDataGet;
