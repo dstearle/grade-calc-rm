@@ -2,7 +2,15 @@
 
   <div id="app">
 
-    <student-input></student-input>
+    <div class="container">
+
+      <!-- Input New Students & Grades -->
+      <student-input></student-input>
+
+      <!-- List Of All Students & Grades -->
+      <student-list></student-list>
+
+    </div>
 
   </div>
 
@@ -10,29 +18,36 @@
 
 <script>
 
-import StudentInput from './components/StudentInput.vue'
+  import StudentInput from './components/StudentInput.vue'
+  import StudentList from './components/StudentList.vue'
 
-export default {
+  export default {
 
-  name: 'app',
+    name: 'app',
 
-  components: {
+    components: {
 
-    StudentInput
+      StudentInput,
+
+      StudentList,
+
+    }
 
   }
-
-}
 
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+  #app {
+
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+
+  }
+
 </style>
