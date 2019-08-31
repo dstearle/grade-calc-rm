@@ -98,6 +98,7 @@
             <button 
                 type="submit" 
                 class="btn btn-primary btn-block"
+                @click="submitStudent" 
             >
 
                 Add Student
@@ -111,3 +112,52 @@
   </div>
 
 </template>
+
+<script>
+
+    export default {
+
+        data() {
+            
+            return {
+                
+                inputName: "x",
+                inputMath: "",
+                inputHistory: "",
+                inputScience: "",
+                inputEnglish: "",
+                
+            }
+            
+        },
+
+        methods: {
+
+            // Submits new students to be stored in students.json
+            submitStudent() {
+
+                // Prepares the data to be stored
+                const data = {
+
+                    name: this.inputName,
+
+                    grades: [
+
+                        "Math - " + this.inputMath,
+                        "History - " + this.inputHistory,
+                        "Science - " + this.inputScience,
+                        "English - " + this.inputEnglish,
+
+                    ]
+
+                };
+
+                console.log(data)
+
+            },
+
+        }
+        
+    }
+
+</script>
