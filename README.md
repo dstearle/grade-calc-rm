@@ -35,7 +35,7 @@ student or students.
 
 <br>
 
-<strong>Requirements :</strong>
+<strong>Notes :</strong>
 
 - If any of the instructions are unclear, feel free to send an email addressing them.
 - Any additional development is not required, but is encouraged.
