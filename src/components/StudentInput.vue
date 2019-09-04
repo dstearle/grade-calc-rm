@@ -14,6 +14,12 @@
                 id="name" 
                 placeholder="Enter Name" 
                 class="form-control"
+                :class="{
+                    'is-invalid': $v.inputName.$error, 
+                    'is-valid': !$v.inputName.$error && $v.inputName.$dirty
+                }"
+                @input="$v.inputName.$touch()"
+                v-model="inputName"
             >
 
         </div>
@@ -93,7 +99,7 @@
         <!-- Submit Button -->
         <div class="form-group form-control-sm col-2">
             
-            <label for="submit" class="float-left font-weight-bold">*</label>
+            <label for="submit" class="float-left font-weight-bold">{{ errorField }}</label>
 
             <button 
                 type="button" 
@@ -115,6 +121,8 @@
 
 <script>
 
+    import { required, minLength } from 'vuelidate/lib/validators'
+
     export default {
 
         data() {
@@ -126,9 +134,18 @@
                 inputHistory: "",
                 inputScience: "",
                 inputEnglish: "",
+                errorField: '*'
                 
             }
             
+        },
+
+         // Form validation tool imported from Vuelidate
+        validations: {
+            inputName: {
+                required,
+                minLength: minLength(3)
+            },
         },
 
         methods: {
@@ -136,26 +153,41 @@
             // Submits new students to be stored in students.json
             submitStudent() {
 
-                // Prepares the data to be stored
-                const inputData = {
+                this.$v.$touch()
 
-                    // _id: this.newId,
+                // Checks for errors in the fields
+                if (this.$v.$invalid) {
+                    // Informs user to fix field errors
+                    this.errorField = 'Fix Errors'
+                }
 
-                    studentName: this.inputName,
+                else {
 
-                    studentGrades: [
+                    // Prepares the data to be stored
+                    const inputData = {
 
-                        ("Math - " + this.inputMath),
-                        ("History - " + this.inputHistory),
-                        ("Science - " + this.inputScience),
-                        ("English - " + this.inputEnglish),
+                        // _id: this.newId,
 
-                    ]
+                        studentName: this.inputName,
 
-                };
+                        studentGrades: [
 
-                // Action from shrimpMarket.js
-                this.$store.dispatch('submitStudent', inputData);
+                            ("Math - " + this.inputMath),
+                            ("History - " + this.inputHistory),
+                            ("Science - " + this.inputScience),
+                            ("English - " + this.inputEnglish),
+
+                        ]
+
+                    };
+
+                    // Clears Errors
+                    this.errorField = '*'
+
+                    // Action from shrimpMarket.js
+                    this.$store.dispatch('submitStudent', inputData);
+
+                }
 
             },
 
