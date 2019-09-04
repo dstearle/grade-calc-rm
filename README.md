@@ -1,5 +1,7 @@
 # grade-calc-rm
 
+<br>
+
 <strong>What Is This Project? :</strong>
 
 - This is a coding challenge given out to people interested in becoming web developer interns for RipeMetrics.
