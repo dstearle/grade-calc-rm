@@ -96,7 +96,7 @@
             <label for="submit" class="float-left font-weight-bold">*</label>
 
             <button 
-                type="submit" 
+                type="button" 
                 class="btn btn-primary btn-block"
                 @click="submitStudent" 
             >
@@ -121,7 +121,7 @@
             
             return {
                 
-                inputName: "x",
+                inputName: "",
                 inputMath: "",
                 inputHistory: "",
                 inputScience: "",
@@ -137,26 +137,29 @@
             submitStudent() {
 
                 // Prepares the data to be stored
-                const data = {
+                const inputData = {
 
-                    name: this.inputName,
+                    // _id: this.newId,
 
-                    grades: [
+                    studentName: this.inputName,
 
-                        "Math - " + this.inputMath,
-                        "History - " + this.inputHistory,
-                        "Science - " + this.inputScience,
-                        "English - " + this.inputEnglish,
+                    studentGrades: [
+
+                        ("Math - " + this.inputMath),
+                        ("History - " + this.inputHistory),
+                        ("Science - " + this.inputScience),
+                        ("English - " + this.inputEnglish),
 
                     ]
 
                 };
 
-                console.log(data)
+                // Action from shrimpMarket.js
+                this.$store.dispatch('submitStudent', inputData);
 
             },
 
-        }
+        },
         
     }
 
