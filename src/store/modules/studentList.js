@@ -15,6 +15,20 @@ const mutations = {
         state.studentListData = studentData;
         
     },
+
+    // Adds data for new students
+    'NEW_STUDENT' (state, {studentName, studentGrades}) {
+        
+        // Pushes new data into studentListData array
+        state.studentListData.data.push({
+
+            name: studentName,
+
+            grades: studentGrades,
+
+        });
+        
+    },
     
 };
 
@@ -24,6 +38,13 @@ const actions = {
     initStudents: ({commit}) => {
         
         commit('SET_STUDENTS', studentData);
+        
+    },
+
+    // Submits the new student's data
+    submitStudent: ({commit}, inputData) => {
+        
+        commit('NEW_STUDENT', inputData);
         
     },
     
