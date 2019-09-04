@@ -29,9 +29,17 @@
             
             <label for="math" class="float-left font-weight-bold">Math</label>
             
-            <select id="math" class="form-control">
+            <select 
+                id="math" 
+                class="form-control"
+                :class="{
+                    'border-danger': $v.inputMath.$error, 
+                    'border-success': !$v.inputMath.$error && $v.inputMath.$dirty
+                }"
+                @select="$v.inputMath.$touch()"
+                v-model="inputMath"
+            >
 
-                <option selected>-</option>
                 <option>A</option>
                 <option>B</option>
                 <option>C</option>
@@ -47,9 +55,17 @@
             
             <label for="history" class="float-left font-weight-bold">History</label>
             
-            <select id="history" class="form-control">
+            <select 
+                id="history" 
+                class="form-control"
+                :class="{
+                    'border-danger': $v.inputHistory.$error, 
+                    'border-success': !$v.inputHistory.$error && $v.inputHistory.$dirty
+                }"
+                @select="$v.inputHistory.$touch()"
+                v-model="inputHistory"
+            >
 
-                <option selected>-</option>
                 <option>A</option>
                 <option>B</option>
                 <option>C</option>
@@ -65,7 +81,16 @@
             
             <label for="science" class="float-left font-weight-bold">Science</label>
             
-            <select id="science" class="form-control">
+            <select 
+                id="science" 
+                class="form-control"
+                :class="{
+                    'border-danger': $v.inputScience.$error, 
+                    'border-success': !$v.inputScience.$error && $v.inputScience.$dirty
+                }"
+                @select="$v.inputScience.$touch()"
+                v-model="inputScience"
+            >
 
                 <option selected>-</option>
                 <option>A</option>
@@ -83,9 +108,17 @@
 
             <label for="english" class="float-left font-weight-bold">English</label>
             
-            <select id="english" class="form-control">
+            <select 
+                id="english" 
+                class="form-control"
+                :class="{
+                    'border-danger': $v.inputEnglish.$error, 
+                    'border-success': !$v.inputEnglish.$error && $v.inputEnglish.$dirty
+                }"
+                @select="$v.inputEnglish.$touch()"
+                v-model="inputEnglish"
+            >
 
-                <option selected>-</option>
                 <option>A</option>
                 <option>B</option>
                 <option>C</option>
@@ -140,12 +173,29 @@
             
         },
 
-         // Form validation tool imported from Vuelidate
+        // Form validation tool imported from Vuelidate
         validations: {
             inputName: {
                 required,
                 minLength: minLength(3)
             },
+
+            inputMath: {
+                required,
+            },
+
+            inputHistory: {
+                required,
+            },
+
+            inputScience: {
+                required,
+            },
+
+            inputEnglish: {
+                required,
+            },
+            
         },
 
         methods: {
@@ -184,7 +234,7 @@
                     // Clears Errors
                     this.errorField = '*'
 
-                    // Action from shrimpMarket.js
+                    // Action from studentList.js
                     this.$store.dispatch('submitStudent', inputData);
 
                 }
