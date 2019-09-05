@@ -16,11 +16,27 @@ const mutations = {
         
     },
 
-    // Adds data for new students
-    'NEW_STUDENT' (state, {studentName, studentGrades}) {
+    // Sets the GPA for each student
+    'SET_GPA' (state) {
         
+        state.studentListData.data.push({
+
+            gpa: 5
+
+        });
+        
+    },
+
+    // Adds data for new students
+    'NEW_STUDENT' (state, { studentName, studentGrades}) {
+        
+        // Grabs the id of the last student in the array and adds one to it
+        let newId = state.studentListData.data.slice(-1)[0]._id + 1;
+
         // Pushes new data into studentListData array
         state.studentListData.data.push({
+
+            _id: newId,
 
             name: studentName,
 

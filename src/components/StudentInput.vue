@@ -92,7 +92,6 @@
                 v-model="inputScience"
             >
 
-                <option selected>-</option>
                 <option>A</option>
                 <option>B</option>
                 <option>C</option>
@@ -215,8 +214,6 @@
 
                     // Prepares the data to be stored
                     const inputData = {
-
-                        // _id: this.newId,
 
                         studentName: this.inputName,
 
