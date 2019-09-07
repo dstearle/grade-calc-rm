@@ -64,6 +64,25 @@ const mutations = {
         // Retrieves the student's gpa
         for(let i = 0; i < studentsArray.length; i++) {
 
+            // For storing converted letter grades (into points)
+            let convertedGrade = [];
+
+            // Converts letter grade for math into numerical points
+            // if(mathArray[i] === 'A') { convertedGrade.push(5) }
+            // else if(mathArray[i] === 'B') { convertedGrade.push(4) }
+            // else if(mathArray[i] === 'C') { convertedGrade.push(3) }
+            // else if(mathArray[i] === 'D') { convertedGrade.push(2) }
+            // else if(mathArray[i] === 'F') { convertedGrade.push(1) }
+            // console.log(convertedGrade)
+
+            // Converts letter grade for history into numerical points
+            if(historyArray[i] === 'A') { convertedGrade.push(5) }
+            else if(historyArray[i] === 'B') { convertedGrade.push(4) }
+            else if(historyArray[i] === 'C') { convertedGrade.push(3) }
+            else if(historyArray[i] === 'D') { convertedGrade.push(2) }
+            else if(historyArray[i] === 'F') { convertedGrade.push(1) }
+            console.log(convertedGrade)
+
             // Empty array to store gpas for students
             let solvedGpa = [5, 2, 3, 4, 0,];
 
