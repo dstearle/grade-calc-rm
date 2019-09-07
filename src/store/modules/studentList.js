@@ -22,12 +22,12 @@ const mutations = {
         // To cut down on writing
         let studentsArray = state.studentListData.data;
         
-        // Arrays to store grades for each subject
+        // Arrays to store student's grades for each subject
         let mathArray = [];
         let historyArray = [];
         let scienceArray = [];
         let englishArray = [];
-        console.log(englishArray)
+        // console.log(mathArray, historyArray, scienceArray, englishArray)
 
         // Retrieves the student's grade for math
         for(let i = 0; i < studentsArray.length; i++) {
@@ -60,6 +60,16 @@ const mutations = {
             englishArray.push(studentsArray[i].grades[3].split(" ")[2])
             
         }
+
+        // Retrieves the student's gpa
+        for(let i = 0; i < studentsArray.length; i++) {
+
+            let solvedGpa = 5;
+
+            studentsArray[i].gpa = solvedGpa;
+            console.log(studentsArray)
+            
+        }
         
     },
 
@@ -90,7 +100,7 @@ const actions = {
     initStudents: ({commit}) => {
         
         commit('SET_STUDENTS', studentData);
-        commit('SET_GPA', studentData);
+        commit('SET_GPA');
         
     },
 
@@ -98,6 +108,7 @@ const actions = {
     submitStudent: ({commit}, inputData) => {
         
         commit('NEW_STUDENT', inputData);
+        commit('SET_GPA');
         
     },
     
