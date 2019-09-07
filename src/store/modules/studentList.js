@@ -64,10 +64,11 @@ const mutations = {
         // Retrieves the student's gpa
         for(let i = 0; i < studentsArray.length; i++) {
 
-            let solvedGpa = 5;
+            // Empty array to store gpas for students
+            let solvedGpa = [5, 2, 3, 4, 0,];
 
-            studentsArray[i].gpa = solvedGpa;
-            console.log(studentsArray)
+            // Gives each student their gpa
+            studentsArray[i].gpa = solvedGpa[i];
             
         }
         
