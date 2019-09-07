@@ -25,12 +25,22 @@ const mutations = {
         // Arrays to store grades for each subject
         let mathArray = [];
         console.log(mathArray)
+        let historyArray = [];
+        console.log(historyArray)
 
         // Retrieves the student's grade for math
         for(let i = 0; i < studentsArray.length; i++) {
 
 
             mathArray.push(studentsArray[i].grades[0].split(" ")[2])
+            
+        }
+
+        // Retrieves the student's grade for history
+        for(let i = 0; i < studentsArray.length; i++) {
+
+
+            historyArray.push(studentsArray[i].grades[1].split(" ")[2])
             
         }
         
