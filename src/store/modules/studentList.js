@@ -61,30 +61,45 @@ const mutations = {
             
         }
 
+        // For storing converted letter grades (into points)
+        let convertedGrade = [];
+
         // Retrieves the student's gpa
         for(let i = 0; i < studentsArray.length; i++) {
 
-            // For storing converted letter grades (into points)
-            let convertedGrade = [];
-
             // Converts letter grade for math into numerical points
-            // if(mathArray[i] === 'A') { convertedGrade.push(5) }
-            // else if(mathArray[i] === 'B') { convertedGrade.push(4) }
-            // else if(mathArray[i] === 'C') { convertedGrade.push(3) }
-            // else if(mathArray[i] === 'D') { convertedGrade.push(2) }
-            // else if(mathArray[i] === 'F') { convertedGrade.push(1) }
-            // console.log(convertedGrade)
+            if(mathArray[i] === 'A') { convertedGrade.push(4) }
+            else if(mathArray[i] === 'B') { convertedGrade.push(3) }
+            else if(mathArray[i] === 'C') { convertedGrade.push(2) }
+            else if(mathArray[i] === 'D') { convertedGrade.push(1) }
+            else if(mathArray[i] === 'F') { convertedGrade.push(0) }
 
             // Converts letter grade for history into numerical points
-            if(historyArray[i] === 'A') { convertedGrade.push(5) }
-            else if(historyArray[i] === 'B') { convertedGrade.push(4) }
-            else if(historyArray[i] === 'C') { convertedGrade.push(3) }
-            else if(historyArray[i] === 'D') { convertedGrade.push(2) }
-            else if(historyArray[i] === 'F') { convertedGrade.push(1) }
+            if(historyArray[i] === 'A') { convertedGrade[i] += 4 }
+            else if(historyArray[i] === 'B') { convertedGrade[i] += 3 }
+            else if(historyArray[i] === 'C') { convertedGrade[i] += 2 }
+            else if(historyArray[i] === 'D') { convertedGrade[i] += 1 }
+            else if(historyArray[i] === 'F') { convertedGrade[i] += 0 }
+
+            // // Converts letter grade for science into numerical points
+            if(scienceArray[i] === 'A') { convertedGrade[i] += 4 }
+            else if(scienceArray[i] === 'B') { convertedGrade[i] += 3 }
+            else if(scienceArray[i] === 'C') { convertedGrade[i] += 2 }
+            else if(scienceArray[i] === 'D') { convertedGrade[i] += 1 }
+            else if(scienceArray[i] === 'F') { convertedGrade[i] += 0 }
+
+            // Converts letter grade for english into numerical points
+            if(englishArray[i] === 'A') { convertedGrade[i] += 4 }
+            else if(englishArray[i] === 'B') { convertedGrade[i] += 3 }
+            else if(englishArray[i] === 'C') { convertedGrade[i] += 2 }
+            else if(englishArray[i] === 'D') { convertedGrade[i] += 1 }
+            else if(englishArray[i] === 'F') { convertedGrade[i] += 0 }
             console.log(convertedGrade)
 
             // Empty array to store gpas for students
-            let solvedGpa = [5, 2, 3, 4, 0,];
+            let solvedGpa = [];
+
+            solvedGpa = (convertedGrade[i] * 4)/16
 
             // Gives each student their gpa
             studentsArray[i].gpa = solvedGpa[i];
