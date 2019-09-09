@@ -5,6 +5,8 @@
 <strong>What Is This Project? :</strong>
 
 - This is a coding challenge given out to people interested in becoming web developer interns for RipeMetrics.
+- The application is a simple gpa calculator that displays a list of students, their grades for different subjects and of course their gpas.
+- It also allows the user to add new students that will automatically be displayed in the list after submission.
 
 <br>
 
