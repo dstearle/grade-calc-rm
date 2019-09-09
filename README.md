@@ -22,7 +22,7 @@
 - When adding new students to the store, I actually append the value for each subject into a similar string as seen in students.json so that the v-for can read it the same way.
 - To retrieve the gpa for each student I have a mutation in Vuex. The mutation uses several for loops to retrieve the letter grades just as mentioned in the v-for loop. If I wanted to I could have potentially just made an array for each subject in the store and used those values wherever needed but I didn't think it was necessary. Once the letter grades for each of the students subjects are retrieved they are converted into numeric values with "if" statements. Instead of having different arrays for each subject I simply add up the points for each student then place them into an array. That array is used by a method that calculated the gpa for each student then creates a new gpa element for each student in the Vuex store.
 
-<br><br><br>
+<br><br>
 
 <h3>Project Specs</h3>
 
