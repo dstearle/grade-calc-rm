@@ -65,7 +65,7 @@ const mutations = {
             
         }
 
-        // Converts letter grades into numerical points
+        // Converts letter grades into numerical points and retrieves accumulative value for each student
         for(let i = 0; i < studentsArray.length; i++) {
 
             // Converts letter grade for math into numerical points
@@ -106,12 +106,25 @@ const mutations = {
             let solvedGpa = [];
             // console.log(solvedGpa)
 
+            // Calculates each student's gpa
             solvedGpa[i] = (convertedGrade[i] * 4)/16
 
             // Gives each student their gpa
             studentsArray[i].gpa = solvedGpa[i];
             
         }
+        
+    },
+
+    // Highlights the student with highest gpa
+    'TOP_STUDENT' (state) {
+        
+        // To cut down on writing
+        let studentsArray = state.studentListData.data;
+
+        //Compare function that sorts the numbers in the array from smallest to largest number
+        let sortedArray = studentsArray.sort(function(a, b){return a - b});
+        console.log(sortedArray)
         
     },
 
@@ -143,6 +156,7 @@ const actions = {
         
         commit('SET_STUDENTS', studentData);
         commit('SET_GPA');
+        commit('TOP_STUDENT');
         
     },
 
@@ -151,6 +165,7 @@ const actions = {
         
         commit('NEW_STUDENT', inputData);
         commit('SET_GPA');
+        commit('TOP_STUDENT');
         
     },
     
