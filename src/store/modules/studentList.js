@@ -123,7 +123,7 @@ const mutations = {
         let studentsArray = state.studentListData.data;
 
         //Compare function that sorts the numbers in the array from smallest to largest number
-        let sortedArray = studentsArray.sort(function(a, b){return a - b});
+        let sortedArray = studentsArray.sort(function(a, b){return a.gpa - b.gpa});
         console.log(sortedArray)
         
     },
