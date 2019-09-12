@@ -120,11 +120,16 @@ const mutations = {
     'TOP_STUDENT' (state) {
         
         // To cut down on writing
-        let studentsArray = state.studentListData.data;
+        let studentsArray = [];
+        studentsArray = state.studentListData.data;
 
-        //Compare function that sorts the numbers in the array from smallest to largest number
-        let sortedArray = studentsArray.sort(function(a, b){return a.gpa - b.gpa});
-        console.log(sortedArray)
+        // Retrieves the student's grade for math
+        for(let i = 0; i < studentsArray.length; i++) {
+
+
+            console.log(Math.max(studentsArray[i].gpa))
+            
+        }
         
     },
 
