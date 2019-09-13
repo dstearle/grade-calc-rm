@@ -3,7 +3,10 @@ import studentData from './../../data/students.json';
 const state = {
     
     // Array to store available students
-    studentListData: []
+    studentListData: [],
+
+    // The highest gpa score
+    highestGpa: '',
     
 };
 
@@ -123,13 +126,21 @@ const mutations = {
         let studentsArray = [];
         studentsArray = state.studentListData.data;
 
-        // Retrieves the student's grade for math
+        // For storing gpas
+        let gpaArray = [];
+        // console.log(gpaArray)
+
+        // Retrieves all of the available gpas from the store then pushes them into an empty array
         for(let i = 0; i < studentsArray.length; i++) {
 
-
-            console.log(Math.max(studentsArray[i].gpa))
+             gpaArray.push(studentsArray[i].gpa)
             
         }
+
+        // Finds the highest gpa
+        Math.max(...gpaArray)
+        // console.log(Math.max(...gpaArray));
+        
         
     },
 
