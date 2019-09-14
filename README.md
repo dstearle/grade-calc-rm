@@ -16,6 +16,8 @@
 
 - I used Vue.js and Bootstrap for the front-end aspects
 - For the input validation I used a package called Vuelidate
+
+Making the list of students:
 - For the student list, I used Vuex to serve as the store for all of the student data. When the application first starts an action in vuex grabs the stored data from the students.json file and transfers it to an empty array in Vuex's store. From this array I use a getter to retreive all of the students to be shown in the list.
 - When new students are added an action pushes that data into the same array in Vuex's store. The getter used to retrieve that data is used a computed method so that whenever the data in the store changes, the list updates automatically.
 - To render the list I use a technique from Vue.js known as "v-for" which acts as a for loop. It uses the id of the student to serve as a key then searches for each object(student) in the array (studentList.data). With "student" being the object it grabs each element nested inside to be shown in the list (name, grades, gpa).
