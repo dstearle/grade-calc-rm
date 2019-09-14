@@ -21,7 +21,7 @@
             <tr 
                 v-for="student of studentList.data" 
                 v-bind:key="student._id"
-                :class="(student.gpa === $store.getters.highestGpaGet) ? 'bg-success' : '' "
+                :class="(student.gpa === $store.getters.highestGpaGet) ? 'bg-success' : '' || (student.gpa === $store.getters.lowestGpaGet) ? 'bg-danger' : ''"
             >
                 <td>{{ student.name }}</td>
                 <td>{{ student.grades[0].split(" ")[2] }}</td>
