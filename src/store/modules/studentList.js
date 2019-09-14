@@ -7,6 +7,9 @@ const state = {
 
     // The highest gpa score
     highestGpa: '',
+
+    // The lowest gpa score
+    lowestGpa: '',
     
 };
 
@@ -119,7 +122,7 @@ const mutations = {
         
     },
 
-    // Highlights the student with highest gpa
+    // Finds the highest and the lowest gpa values
     'TOP_STUDENT' (state) {
         
         // To cut down on writing
@@ -139,8 +142,11 @@ const mutations = {
 
         // Finds the highest gpa and sets it to the store
         state.highestGpa = Math.max(...gpaArray)
+        // Finds the lowest gpa and sets it to the store
+        state.lowestGpa = Math.min(...gpaArray)
+
         // console.log(Math.max(...gpaArray));
-        // console.log(state.highestGpa)
+        // console.log(state.lowestGpa)
         
         
     },
@@ -201,6 +207,13 @@ const getters = {
     highestGpaGet: state => {
         
         return state.highestGpa;
+        
+    },
+
+    // Getter for the lowest gpa
+    lowestGpaGet: state => {
+        
+        return state.lowestGpa;
         
     },
     
