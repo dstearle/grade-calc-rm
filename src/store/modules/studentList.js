@@ -137,9 +137,10 @@ const mutations = {
             
         }
 
-        // Finds the highest gpa
-        Math.max(...gpaArray)
+        // Finds the highest gpa and sets it to the store
+        state.highestGpa = Math.max(...gpaArray)
         // console.log(Math.max(...gpaArray));
+        // console.log(state.highestGpa)
         
         
     },
@@ -194,7 +195,14 @@ const getters = {
         
         return state.studentListData;
         
-    }
+    },
+
+    // Getter for the highest gpa
+    highestGpaGet: state => {
+        
+        return state.highestGpa;
+        
+    },
     
 };
 
